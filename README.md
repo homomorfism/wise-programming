@@ -2,6 +2,9 @@
 [Under Development] Emotion analyser tool for programmers
 
 
+## Info about the status of the project, tasks and what is completed
+- [notion](https://reminiscent-sprite-516.notion.site/Wise-programming-273fae0e3e5e4229a3dfadd2a7a1c37e)
+
 ## Description
 
 This desktop application tracks the facial expressions while human is working on the computer and detects emotion changes: tiredness, angriness, apathy - while coding. When the program detects tiredness during some interval (e.x 1-2 minutes)- it shows a pop-up/notification with suggestion to make a short brake.
