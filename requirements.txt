@@ -1,0 +1,11 @@
+opencv-python
+celery
+aioredis
+torch
+numpy
+pillow
+certifi
+thop
+six
+pyparsing
+pyyaml

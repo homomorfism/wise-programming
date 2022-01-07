@@ -5,7 +5,8 @@ __pycache__/
 .idea/
 # C extensions
 *.so
-
+tmp/
+weights/
 # Distribution / packaging
 .Python
 build/

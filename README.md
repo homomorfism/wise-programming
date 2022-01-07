@@ -1,6 +1,7 @@
 ## wise-programming 
 [Under Development] Emotion analyser tool for programmers
 
+### State of the project: [notion.so](https://shamil-arslanov.notion.site/Wise-programming-273fae0e3e5e4229a3dfadd2a7a1c37e)
 
 ## Info about the status of the project, tasks and what is completed: [notion.so](https://reminiscent-sprite-516.notion.site/Wise-programming-273fae0e3e5e4229a3dfadd2a7a1c37e)
 
