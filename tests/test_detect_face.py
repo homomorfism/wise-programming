@@ -11,9 +11,9 @@ from src.emotion_predictor.face_detection.detect import extract_box
 class TestDetection(TestCase):
 
     def setUp(self) -> None:
-        image_path = Path("../demo_images/shamil-smile.jpg")
-        weights_path = Path("../weights/yolov5n-face.pt")
-        reference_crop_path = Path("../demo_images/shamil-cropped.png")
+        image_path = Path("demo_images/shamil-smile.jpg")
+        weights_path = Path("weights/yolov5n-face.pt")
+        reference_crop_path = Path("demo_images/shamil-cropped.png")
 
         self.image = io.imread(str(image_path))
         self.model = load_model(weights=str(weights_path), device="cpu")
