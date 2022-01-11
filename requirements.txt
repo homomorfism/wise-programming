@@ -9,3 +9,16 @@ thop
 six
 pyparsing
 pyyaml
+
+matplotlib
+tqdm
+pandas
+seaborn
+scipy
+torchvision
+wandb
+requests
+onnx
+Cython
+ipython
+scikit-image
