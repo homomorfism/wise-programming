@@ -22,3 +22,4 @@ onnx
 Cython
 ipython
 scikit-image
+onnxruntime
