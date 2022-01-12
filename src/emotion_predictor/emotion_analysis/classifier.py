@@ -5,6 +5,7 @@ import onnx
 import onnxruntime
 from scipy.special import softmax
 from skimage import color
+from skimage import io
 from skimage.transform import resize
 
 emotions_order = ['neutral', 'happiness', 'surprise', 'sadness', 'anger', 'disgust', 'fear', 'contempt']
@@ -37,3 +38,19 @@ def get_onnx_session(model_path: Path):
     model = onnx.load(str(model_path))
     session = onnxruntime.InferenceSession(model.SerializeToString())
     return session
+
+
+def make_classification(model_path: Path, image_path: Path):
+    session = get_onnx_session(model_path)
+    image = io.imread(str(image_path))
+    image = preprocess(image)
+    predictions = predict_emotion(image, session)
+    print(predictions)
+
+
+if __name__ == '__main__':
+    make_classification(
+        model_path=Path('/home/shamil/PycharmProjects/wise-programming/weights/emotion-ferplus-8.onnx'),
+        image_path=Path(
+            "/home/shamil/PycharmProjects/wise-programming/demo_images/emotion_examples/shamil-sad-crop.png")
+    )

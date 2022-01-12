@@ -1,7 +1,9 @@
 import time
+from pathlib import Path
 
 import cv2
 import matplotlib.pyplot as plt
+from skimage import io
 
 
 def read_frame(video_capture):
@@ -28,5 +30,12 @@ def repeat_read_frame():
         print("Attempting graceful shutdown...")
 
 
+def make_screenshot(saving_path: Path):
+    capture = cv2.VideoCapture(0)
+    image = read_frame(capture)
+    io.imsave(str(saving_path), image)
+
+
 if __name__ == '__main__':
-    repeat_read_frame()
+    saving_path = Path("/home/shamil/PycharmProjects/wise-programming/demo_images/emotion_examples/shamil-sad.png")
+    make_screenshot(saving_path)

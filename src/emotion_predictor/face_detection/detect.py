@@ -1,8 +1,12 @@
+from pathlib import Path
+
 import cv2
 import numpy as np
 import torch
 import torch.nn as nn
+from skimage import io
 
+from detect_face import load_model
 from yolov5_face.utils.datasets import letterbox
 from yolov5_face.utils.general import non_max_suppression_face, check_img_size, \
     scale_coords, xyxy2xywh
@@ -70,3 +74,21 @@ def extract_box(image: np.array, model: nn.Module, device="cpu") -> np.array:
                 coords_predicted.append(coords_pred)
 
     return np.asarray(coords_predicted)
+
+
+def make_crop(src_image: Path, weights_path: Path, dst_image: Path):
+    image = io.imread(str(src_image))
+    model = load_model(str(weights_path), device="cpu")
+
+    x1, y1, x2, y2 = extract_box(image, model)[0]
+    crop = image[y1:y2, x1:x2]
+
+    io.imsave(str(dst_image), crop)
+
+
+if __name__ == '__main__':
+    make_crop(
+        src_image=Path('/home/shamil/PycharmProjects/wise-programming/demo_images/emotion_examples/shamil-sad.png'),
+        weights_path=Path("/home/shamil/PycharmProjects/wise-programming/weights/yolov5n-face.pt"),
+        dst_image=Path("/home/shamil/PycharmProjects/wise-programming/demo_images/emotion_examples/shamil-sad-crop.png")
+    )
